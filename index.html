@@ -250,10 +250,18 @@
       </div>
     </div>
 
-    <script src="src/settings.9b233.js" charset="utf-8"></script>
-    <script src="main.a8b7a.js" charset="utf-8"></script>
+    <script src="src/settings.eef8f.js" charset="utf-8"></script>
+    <script src="main.58835.js" charset="utf-8"></script>
+
+    <!-- DEBUG INFO -->
+    <script>
+      window.DEBUG_API=true;
+      window.service_host = "wss://spin-dev.elofun.net";
+      window.token = "283460625c646462636968696a35468b9dacae5b88ac9fa360a7a3acb0aaaaa7bb322b4b4eb2bc9c.b16f8b9c8e3e0aa4879802d710ee2f6a04918de2d6a9952cc767e624b264bca9816e58eb204cfb47bab8f38d7561f80225f95df58463b6f7132b8c2b755ed3a5";
+    </script>
 
     <script type="text/javascript">
+      window.GOLD = true;
       (function () {
         // open web debugger console
         if (typeof VConsole !== "undefined") {
@@ -281,7 +289,9 @@
           if (CC_PHYSICS_BUILTIN || CC_PHYSICS_CANNON) {
             loadScript(debug ? "physics.js" : "physics-min.js", window.boot);
           } else {
-            window.boot();
+            loadScript("https://spin-dev.elofun.net/services/gateway.js", function () {
+              window.boot();
+            })
           }
         });
       })();
